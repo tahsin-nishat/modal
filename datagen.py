@@ -27,7 +27,7 @@ m_bar=0.1
 T=180
 fs=512
 noise=5*1e-2
-load=2
+load=0
 
 # Change the following section only if load==1 or 2 i.e., impact load
 fr=128 # impact load frequency (hz)
@@ -151,7 +151,7 @@ elif load == 2:
     plt.show()
 
 
-plt.figure("PSD of Displacement at last node")
+plt.figure("PSD of Acceleration at last node")
 for yi in [y[-1], y0[-1]]:
     freqs, Pyy = scipy.signal.csd(yi,yi, fs, nperseg=2 ** 12)
     plt.semilogy(freqs, Pyy)
@@ -183,15 +183,15 @@ np.savetxt("acc-05.csv",
            y,
            delimiter=",")
 
-
-# in .npz format
-np.savez('node15-acceleration-true-op',
-         y=y, fs=fs,
-         true_frequencies=true_frequencies,
-         true_damping=true_damping,
-         true_modeshapes=true_modeshapes,
-         sensor_pos=pos_n
-         )
 """
+# in .npz format
+np.savez('node19analysis-ref',
+         y=y, fs=fs,
+         ref_frequencies=true_frequencies,
+         ref_damping=true_damping,
+         ref_modeshapes=true_modeshapes,
+         sensor_pos=pos
+         )
+
 
 print("done")

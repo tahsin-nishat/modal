@@ -57,10 +57,10 @@ sensor_posref=ref["sensor_pos"]
 for n in range(5):
     ax = axes[n]
     phi=moderef[n,:]
-    #phi=np.r_[0., phi, 0.]
+    phi=np.r_[0., phi, 0.]
     mode = modes[n]
     v = np.r_[0., mode.v, 0.]
-    #v = sysid.utils.modal_scale_factor(v, phi) * v
+    v = sysid.utils.modal_scale_factor(v, phi) * v
     ax.plot(sensor_pos, v.real, label='Estimated', lw=0.5, marker='x', markersize=1,c='r')
     ax.plot(sensor_posref, phi.real, label='Reference', lw=0.5, marker='x', markersize=1,c='g')
     if n == 0:
