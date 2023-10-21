@@ -1,5 +1,3 @@
-Simulation of Simply Supported Beam
-====================================
 # Simulation of Simply Supported Beam
 Description
 ------------
